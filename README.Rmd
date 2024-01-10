@@ -16,7 +16,7 @@ This week is about getting to know the course. We'll cover the syllabus and spen
 
 ## Class materials
 - Syllabus: [hard copy](https://sis750.github.io/Syllabus/syllabus-750-spring24.pdf) or [virtual](https://github.com/sis750)
-- [The Monty Hall problem](https://github.com/sis750/01-monty-hall/MontyHall.pdf) exercise
+- [The Monty Hall problem](https://sis750.github.io/01-monty-hall/MontyHall.pdf) exercise
 
 ## Assessments
 - Problem Set 1 is due in hard copy at the start of class, January 24.

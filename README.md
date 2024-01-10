@@ -25,7 +25,7 @@ programming: using `R markdown` to code and typeset in one document.
   copy](https://sis750.github.io/Syllabus/syllabus-750-spring24.pdf) or
   [virtual](https://github.com/sis750)
 - [The Monty Hall
-  problem](https://github.com/sis750/01-monty-hall/MontyHall.pdf)
+  problem](https://sis750.github.io/01-monty-hall/MontyHall.pdf)
   exercise
 
 ## Assessments
