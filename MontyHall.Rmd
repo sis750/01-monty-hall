@@ -20,4 +20,13 @@ This classic probability puzzle is based loosely on Monty Hall’s game show *Le
 Marilyn's answer was simple: switch. Switching doubles the probability of winning the car: $Pr[car|switch] = 0.666$; $Pr[car|stay] = 0.333$. Her answer was not popular. The magazine received more than 10,000 letters insisting that vos Savant was wrong and a total fool for suggesting that the contestant switch. Marilyn's follow-up explanations and formal proofs were not enough to satisfy the most serious doubters. Notably, mathematician Paul Erös rejected Marilyn's answer until he was shown a computer simulation.
 
 ## Your challenge
-Write and execute a computer simulation to convince Marilyn's most skeptical readers that switching doors is the best solution to the Monty Hall problem. Code the routine using the R language.
+Write and execute a computer simulation to convince Marilyn's most skeptical readers that switching doors is the best solution to the Monty Hall problem. Code the routine using the R language. Then use `R Markdown` to communicate your findings by answering the questions below.
+
+1. How did you program your simulation? Paste your well formatted code into your answers. 
+
+2. Present a table showing the number of simulated games won by the contestant who chose to switch and the number won by the contestant who stayed.
+
+3. Present the same data above graphically (e.g., with a bar chart).
+
+4. Are your findings consisting with Marilyn's arguments? Is it better to switch? Explain.
+

@@ -19,6 +19,6 @@ This week is about getting to know the course. We'll cover the syllabus and spen
 - [The Monty Hall problem](https://sis750.github.io/01-monty-hall/MontyHall.pdf) exercise
 
 ## Assessments
-- Problem Set 1 is due in hard copy at the start of class, January 24.
+- [Problem Set 1](https://sis750.github.io/01-monty-hall/ps1.pdf) is due in hard copy at the start of class, January 24.
 - Extra Credit: link RStudio with your GitHub account and fork [this repository](https://github.com/sis750/01-monty-hall). 
 
