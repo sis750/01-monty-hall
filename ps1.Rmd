@@ -1,6 +1,6 @@
 ---
 title: "Problem Set 1"
-author: Due 24 Jan
+author: Due 24 January
 output: 
   pdf_document:
     includes:
@@ -12,7 +12,7 @@ output:
 ```
 
 ## What to submit and how
-Answer the questions below to the best of your ability. Write clearly, and format your tables and visuals appropriately. You must use `R Markdown` to compile your answers. For full credit, `echo` all R code chunks you use. Submit your work in hard copy at the beginning of class. 
+Answer the questions below to the best of your ability. Write clearly, and format your tables and visuals appropriately. You must use `R Markdown` to compose and compile your work. For full credit, `echo` all code chunks. Submit your work in hard copy at the beginning of class. 
 
 ## Questions
 Use the Gapminder data to extend analyses in sections 5.3-5.4 of Dr. Jenny Bryan's [Stat545 book](https://stat545.com/). Prof. Bryan relies on an abridged version of the dataset, `gapminder`. Your analysis must use the full `gapminder_unfiltered` data. To access the data, install and load the `gapminder` package. I recommend that you then assign the data to a new object (e.g., `df = gapminder_unfiltered`).

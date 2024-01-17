@@ -26,7 +26,7 @@ Write and execute a computer simulation to convince Marilyn's most skeptical rea
 
 2. Present a table showing the number of simulated games won by the contestant who chose to switch and the number won by the contestant who stayed.
 
-3. Present the same data above graphically (e.g., with a bar chart).
+3. Now present the results graphically (e.g., with a bar chart).
 
-4. Are your findings consisting with Marilyn's arguments? Is it better to switch? Explain.
+4. Are your findings consistent with Marilyn's arguments? Is it better to switch? Explain.
 
