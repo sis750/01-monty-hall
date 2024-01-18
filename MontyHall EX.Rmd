@@ -1,0 +1,77 @@
+---
+title: "Monty Hall Exercise"
+author: "Austin Hart"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  fig.align = 'center',
+  message = FALSE,
+  warning = FALSE
+)
+
+# load packages
+  library(tidyverse)
+  library(knitr)
+```
+
+
+1. See my simulation below. I chose 10,000 trials.
+
+```{r}
+# Simulation -----------  
+## set the stage
+  doors = c('A', 'B', 'C')
+
+## keep score 10,000
+  results = tibble(
+    trial = 1:10000,
+    winner = rep(NA, 10000)
+  )
+  
+## simulate the game  
+  for (i in 1:10000){
+    car = sample(doors, 1)  # place car at random
+    selection = sample(doors, 1)
+    reveal = sample(doors[doors != car & doors != selection], 1)  
+    switch = sample(doors[doors != reveal & doors != selection], 1)
+    results[i, 'winner'] = if_else(car == switch, 'Marilyn', 'Paul')
+  }
+```
+
+2. See the table below
+
+```{r}
+## tabulate wins, calculate win %
+  outcome =
+    results |>
+    count(winner) |>
+    mutate(win_per = n / sum(n) * 100)
+
+  kable(outcome) 
+
+```
+
+3. See graph.
+
+```{r fig1, fig.width=3, fig.height=2, fig.cap = 'Monty Hall Simulations'}
+## Graph
+  ggplot(data = outcome, aes(x = winner, y = win_per)) +
+    geom_col(fill = 'cornflowerblue', color = 'gray27') +
+    labs(
+      x = 'Winner is...',
+      y = 'Percent'
+    ) +
+    scale_y_continuous(limits = c(0,100)) +
+    coord_flip() +
+    theme_minimal()
+
+```
+
+4. In `r nrow(results)` simulations, the contestant who switched won a total of `r filter(results, winner == "Marilyn") |> nrow()` times. This is consistent with Marilyn's prediction: it's better to switch.
+
+
