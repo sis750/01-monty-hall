@@ -1,0 +1,120 @@
+---
+title: "PS 1 SOLUTION SET"
+author: Spring 2024
+output: 
+  pdf_document:
+    includes:
+      in_header: header.tex
+---
+
+
+There are usually many ways to arrive at complete and correct answers. The solution set shows you one way. As always, study the keys (the `.Rmd` code and `.pdf` output), and reach out with questions. 
+
+```{r setup, include=TRUE}
+## Set code chunk options
+  knitr::opts_chunk$set(
+    echo = TRUE,
+    eval = TRUE,
+    fig.align = 'center',
+    message = FALSE,
+    warning = FALSE
+  )
+```
+
+```{r}
+## Load packages
+  library(tidyverse)
+  library(knitr)
+
+## PS1 data
+  df = gapminder::gapminder_unfiltered
+```
+
+1. The unfiltered Gapminder data is a country-year dataset with `r nrow(df)` observationsa and `r length(df)` variables. The data covers `r df |> pull(country) |> unique() |> length()` unique countries from `r min(df['year'])` to `r max(df['year'])`.
+
+2. The plot below scatters life expectancy over year for the full dataset.
+
+```{r plot1, fig.dim=c(3,2), fig.cap = 'Life expectancy over time'}
+ggplot(df, aes(x = year, y = lifeExp)) +
+  geom_jitter(
+    shape = 21,
+    alpha = 0.3
+  ) +
+  geom_smooth(
+    color = 'firebrick',
+    se = F
+  ) +
+  labs(
+    x = 'Year',
+    y = 'Life Expectancy'
+  ) +
+  theme_classic()
+```
+
+3. The table below summarizes coverage of the Gapminder (unfiltered) data by continent. 
+
+```{r tab}
+df |>
+  count(continent, name = 'Freq') |>
+  mutate(
+    Per = Freq / sum(Freq) * 100
+  ) |>
+  kable(
+    digits = 1L, 
+    format.args = list(big.mark = ','),
+    caption = 'Gapminder Coverage by Continent'
+  )
+```
+
+4. See the recreated plot using the unfiltered data below. 
+
+```{r recplot, fig.dim=c(4,3), fig.cap = 'GDP over time by continent'}
+  df |>
+    filter(continent != "Oceania") |>
+    ggplot(aes(x = gdpPercap, y = lifeExp)) +
+  	facet_wrap(~ continent) +
+  	geom_point(
+  	  alpha = (1/3), 
+  	  size = 3
+  	) +
+    geom_smooth(
+  	  lwd = 1.5, 
+  	  se = FALSE
+  	) +
+  	scale_x_log10() # log the x axis the right way
+
+```
+
+<!-- Howdy! I'm extra credit 2. If you find me, email Prof Hart. -->
+
+5. See the styled code below. Note especially the spacing and use of line breaks to organize code within chunks and between functions/operator.
+
+```{r, eval = FALSE}
+  flights |>
+    filter(dest == "IAH") |>
+    group_by(
+      year, 
+      month, 
+      day
+    ) |>
+    summarize(
+      n = n(), 
+      delay = mean(arr_delay, na.rm = TRUE)
+    ) |>
+    filter(n > 10)
+
+flights |>
+  filter(
+    carrier == "UA", 
+    dest %in% c("IAH", "HOU"), 
+    sched_dep_time > 0900,
+    sched_arr_time < 2000
+  ) |>
+  group_by(flight) |>
+  summarize(
+    delay = mean(arr_delay, na.rm=TRUE), 
+    cancelled = sum(is.na(arr_delay)), 
+    n = n()
+  ) |>
+  filter(n > 10)
+```
